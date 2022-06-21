@@ -167,7 +167,7 @@ static size_t xmbstowcs (wchar_t *dest, const char *src, size_t len,
 	while (src && (len || !dest)) {
 		size_t res;
 
-		res = mbsrtowcs (dest, &src, len, &ps);
+		res = mbsrtowcs (dest, &src, dest ? len : 0, &ps);
 		if (res != (size_t)-1) {
 			count += res;
 			src = NULL;
